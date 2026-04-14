@@ -4,7 +4,7 @@
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](./LICENSE)
 [![PHP 8.3](https://img.shields.io/badge/PHP-8.3-777BB4.svg)](https://www.php.net/)
 
-Open-source multi-tenant school helpdesk & communication platform — Arabic-first, built for MENA schools.
+Open-source multi-tenant school helpdesk & communication platform — built for MENA schools. Arabic UI on the roadmap.
 
 > Parents, teachers and students report issues. Admins route, respond, and close them. AI triages and spots trends before they escalate.
 
@@ -33,7 +33,7 @@ Open-source multi-tenant school helpdesk & communication platform — Arabic-fir
 - 🤖 **AI triage (Pro)** — sentiment, urgency flags, theme extraction, trend detection.
 - 💬 **RAG chatbot (Pro)** — per-school knowledge base (PDF/Word → pgvector embeddings → Claude).
 - 📱 **WhatsApp Business (Pro)** — schools receive issues and reply directly through WhatsApp.
-- 🌐 **Arabic-first / RTL** — full bilingual UI (Arabic + English).
+- 🌐 **Bilingual-ready** — English UI today; full Arabic / RTL pass is on the roadmap.
 
 ## Screenshots
 
