@@ -27,7 +27,7 @@ Thanks for your interest! This project is open-source under AGPL-3 and welcomes 
 ## Code style
 
 - PHP 8.2+ with typed properties, constructor promotion, explicit return types.
-- Run `vendor/bin/pint --dirty` before committing.
+- Run `vendor/bin/pint --dirty` before committing (CI doesn't enforce this yet — see issue for the repo-wide format pass).
 - Form Requests for validation (not inline `$request->validate()`).
 - Queue jobs for async work (AI, email, notifications).
 - Tenant-scoped models must use the `BelongsToTenant` trait and include `tenant_id` in `$fillable`.
