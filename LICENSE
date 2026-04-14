@@ -1,0 +1,31 @@
+Eliflammeem — Open Source License
+
+Copyright (c) 2026 Eliflammeem
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU Affero General Public License, version 3, as published by
+the Free Software Foundation.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+The full text of the AGPL-3.0 license is available at:
+https://www.gnu.org/licenses/agpl-3.0.txt
+
+---
+
+## Dual licensing
+
+Eliflammeem is available under two licenses:
+
+1. **GNU AGPL-3.0** (this file) — free for self-hosted, non-commercial, and
+   AGPL-compatible commercial use. If you modify Eliflammeem and run it as a
+   network service (e.g., offer it as SaaS to others), AGPL-3 requires you to
+   release your modifications under AGPL-3 as well.
+
+2. **Commercial License** — available for organizations that cannot or do not
+   wish to comply with AGPL-3 (e.g., proprietary SaaS providers, closed-source
+   distributors). Contact the Eliflammeem team for commercial licensing terms.
+
+For inquiries: licensing@eliflammeem.com

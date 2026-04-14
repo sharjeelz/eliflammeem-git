@@ -1,0 +1,16 @@
+node_modules
+vendor
+.git
+.env
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+storage/logs/*
+bootstrap/cache/*
+.phpunit.result.cache
+*.md
+!README.md
+.idea
+.vscode
+.cursor
+.claude

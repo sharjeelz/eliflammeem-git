@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /nova
+Disallow: /admin
+Disallow: /api
+
+Sitemap: https://eliflammeem.com/sitemap.xml
