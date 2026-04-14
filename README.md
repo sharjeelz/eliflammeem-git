@@ -1,5 +1,9 @@
 # Eliflammeem · إلف لام ميم
 
+[![CI](https://github.com/sharjeelz/eliflammeem-git/actions/workflows/ci.yml/badge.svg)](https://github.com/sharjeelz/eliflammeem-git/actions/workflows/ci.yml)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](./LICENSE)
+[![PHP 8.3](https://img.shields.io/badge/PHP-8.3-777BB4.svg)](https://www.php.net/)
+
 Open-source multi-tenant school helpdesk & communication platform — Arabic-first, built for MENA schools.
 
 > Parents, teachers and students report issues. Admins route, respond, and close them. AI triages and spots trends before they escalate.
