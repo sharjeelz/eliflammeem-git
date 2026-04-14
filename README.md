@@ -10,6 +10,19 @@ Open-source multi-tenant school helpdesk & communication platform — Arabic-fir
 
 ---
 
+## 🚀 Try the live demo
+
+| | |
+|---|---|
+| **Admin panel** | https://demo.eliflammeem.com/admin/login |
+| Email | `admin@demoschool.net` |
+| Password | `demo@123!!` |
+| **Parent portal** | https://demo.eliflammeem.com |
+
+> Demo data is shared and periodically reset. Please don't store real information here. For a private instance, run locally via Docker (below) or email `szubair01@gmail.com` for a guided install.
+
+---
+
 ## What it does
 
 - 🎫 **Issue tracking** — parents/teachers submit issues via a passwordless access-code portal; admins triage, assign, comment and close.
