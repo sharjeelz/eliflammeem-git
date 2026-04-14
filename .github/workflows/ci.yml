@@ -33,7 +33,7 @@ jobs:
           rm -f composer.lock
 
       - name: Install composer dependencies (minus Nova)
-        run: composer install --prefer-dist --no-progress --no-interaction --ignore-platform-reqs
+        run: composer install --prefer-dist --no-progress --no-interaction --ignore-platform-reqs --no-scripts
 
       - name: Run Laravel Pint (lint)
         run: vendor/bin/pint --test
