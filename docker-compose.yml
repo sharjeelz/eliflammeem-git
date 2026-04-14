@@ -6,7 +6,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: school-ai-app
+    container_name: eliflammeem-app
     restart: unless-stopped
     working_dir: /var/www/html
     volumes:
@@ -16,7 +16,7 @@ services:
       - DB_CONNECTION=pgsql
       - DB_HOST=db
       - DB_PORT=5432
-      - DB_DATABASE=${DB_DATABASE:-school_ai}
+      - DB_DATABASE=${DB_DATABASE:-eliflammeem}
       - DB_USERNAME=${DB_USERNAME:-postgres}
       - DB_PASSWORD=${DB_PASSWORD:-postgres}
       - REDIS_HOST=redis
@@ -26,12 +26,12 @@ services:
       - db
       - redis
     networks:
-      - school-ai-network
+      - eliflammeem-network
 
   # Nginx Web Server
   nginx:
     image: nginx:alpine
-    container_name: school-ai-nginx
+    container_name: eliflammeem-nginx
     restart: unless-stopped
     ports:
       - "8000:80"
@@ -41,43 +41,43 @@ services:
     depends_on:
       - app
     networks:
-      - school-ai-network
+      - eliflammeem-network
 
   # PostgreSQL with pgvector
   db:
     image: pgvector/pgvector:pg16
-    container_name: school-ai-db
+    container_name: eliflammeem-db
     restart: unless-stopped
     ports:
       - "5433:5432"  # Changed to 5433 to avoid conflict with WAMP PostgreSQL
     environment:
-      POSTGRES_DB: ${DB_DATABASE:-school_ai}
+      POSTGRES_DB: ${DB_DATABASE:-eliflammeem}
       POSTGRES_USER: ${DB_USERNAME:-postgres}
       POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
-      - school-ai-network
+      - eliflammeem-network
 
   # Redis
   redis:
     image: redis:alpine
-    container_name: school-ai-redis
+    container_name: eliflammeem-redis
     restart: unless-stopped
     ports:
       - "6379:6379"
     volumes:
       - redis_data:/data
     networks:
-      - school-ai-network
+      - eliflammeem-network
 
   # Queue Worker
   queue:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: school-ai-queue
+    container_name: eliflammeem-queue
     restart: unless-stopped
     working_dir: /var/www/html
     command: php artisan queue:work --tries=3 --timeout=300
@@ -87,7 +87,7 @@ services:
       - DB_CONNECTION=pgsql
       - DB_HOST=db
       - DB_PORT=5432
-      - DB_DATABASE=${DB_DATABASE:-school_ai}
+      - DB_DATABASE=${DB_DATABASE:-eliflammeem}
       - DB_USERNAME=${DB_USERNAME:-postgres}
       - DB_PASSWORD=${DB_PASSWORD:-postgres}
       - REDIS_HOST=redis
@@ -97,10 +97,10 @@ services:
       - db
       - redis
     networks:
-      - school-ai-network
+      - eliflammeem-network
 
 networks:
-  school-ai-network:
+  eliflammeem-network:
     driver: bridge
 
 volumes:
