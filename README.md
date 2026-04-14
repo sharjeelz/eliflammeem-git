@@ -81,7 +81,7 @@ Eliflammeem is developed as **open-core**: the helpdesk, public portal, roles, r
 | Nova superadmin (multi-tenant ops) | — | ✅ |
 | Priority support & guided install | — | ✅ |
 
-Interested in Pro or a guided install? → **licensing@eliflammeem.com**
+Interested in Pro or a guided install? → **szubair01@gmail.com**
 
 ---
 
@@ -90,7 +90,7 @@ Interested in Pro or a guided install? → **licensing@eliflammeem.com**
 Dual-licensed:
 
 1. **AGPL-3.0** — free for self-hosted, non-commercial, and AGPL-compatible use. If you modify and run Eliflammeem as a network service, you must release your modifications under AGPL-3.
-2. **Commercial license** — for organizations that can't or don't want to comply with AGPL-3 (e.g., proprietary SaaS). Contact `licensing@eliflammeem.com`.
+2. **Commercial license** — for organizations that can't or don't want to comply with AGPL-3 (e.g., proprietary SaaS). Contact `szubair01@gmail.com`.
 
 See [`LICENSE`](./LICENSE) for details.
 

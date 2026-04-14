@@ -4,7 +4,7 @@
 
 **Please do not open a public GitHub issue for security vulnerabilities.**
 
-Email reports to **security@eliflammeem.com** with:
+Email reports to **szubair01@gmail.com** with:
 
 - A description of the vulnerability
 - Steps to reproduce (proof-of-concept where appropriate)
