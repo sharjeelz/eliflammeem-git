@@ -7,34 +7,9 @@ on:
     branches: [main]
 
 jobs:
-  lint-and-test:
-    name: Lint + test
+  lint:
+    name: Lint
     runs-on: ubuntu-latest
-
-    services:
-      postgres:
-        image: pgvector/pgvector:pg16
-        env:
-          POSTGRES_DB: eliflammeem_test
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-        ports:
-          - 5432:5432
-        options: >-
-          --health-cmd "pg_isready -U postgres"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-
-      redis:
-        image: redis:alpine
-        ports:
-          - 6379:6379
-        options: >-
-          --health-cmd "redis-cli ping"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
 
     steps:
       - uses: actions/checkout@v4
@@ -43,48 +18,30 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
-          extensions: pdo, pdo_pgsql, pgsql, mbstring, exif, pcntl, bcmath, gd, zip, redis
+          extensions: pdo, pdo_pgsql, pgsql, mbstring, exif, pcntl, bcmath, gd, zip
           coverage: none
           tools: composer:v2
 
       - name: Validate composer.json
         run: composer validate --strict
 
-      - name: Cache composer dependencies
-        uses: actions/cache@v4
-        with:
-          path: vendor
-          key: ${{ runner.os }}-composer-${{ hashFiles('composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-composer-
-
-      - name: Install composer dependencies
-        run: composer install --prefer-dist --no-progress --no-interaction
-
-      - name: Copy .env
-        run: cp .env.example .env
-
-      - name: Generate key
-        run: php artisan key:generate
-
-      - name: Configure test database
+      # Remove Nova (paid package) before install so public CI doesn't need credentials.
+      # Full tests are run privately with Nova until the Pro/Core split lands.
+      - name: Remove Nova for public CI
         run: |
-          echo "DB_CONNECTION=pgsql" >> .env
-          echo "DB_HOST=127.0.0.1" >> .env
-          echo "DB_PORT=5432" >> .env
-          echo "DB_DATABASE=eliflammeem_test" >> .env
-          echo "DB_USERNAME=postgres" >> .env
-          echo "DB_PASSWORD=postgres" >> .env
+          composer remove --no-update laravel/nova laravel/nova-devtool || true
+          rm -f composer.lock
+
+      - name: Install composer dependencies (minus Nova)
+        run: composer install --prefer-dist --no-progress --no-interaction --ignore-platform-reqs
 
       - name: Run Laravel Pint (lint)
         run: vendor/bin/pint --test
 
-      - name: Run tests
-        run: php artisan test
-        env:
-          DB_CONNECTION: pgsql
-          DB_HOST: 127.0.0.1
-          DB_PORT: 5432
-          DB_DATABASE: eliflammeem_test
-          DB_USERNAME: postgres
-          DB_PASSWORD: postgres
+  # TODO: re-enable once Nova is made optional (issue #TBD)
+  # test:
+  #   name: Tests (requires Nova)
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     ... etc

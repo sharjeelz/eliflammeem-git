@@ -106,11 +106,14 @@ Issues, feature requests and PRs welcome. See [`CONTRIBUTING.md`](./CONTRIBUTING
 
 ## Roadmap
 
+- [ ] **Make Laravel Nova optional** — current `composer.json` requires Nova (paid, ~$99/yr). Nova will move to the Pro edition so the open-source core installs cleanly without a Nova license. See [`docs/nova-refactor.md`](./docs/nova-refactor.md) (coming).
 - [ ] Hosted public demo (`demo.eliflammeem.com`)
 - [ ] English + Arabic translation pass
 - [ ] First-time setup wizard (non-Docker)
 - [ ] Helm chart for Kubernetes
 - [ ] Mobile apps (parent + staff)
+
+> **Current dev-setup note:** until the Nova refactor ships, running this repo locally requires a Laravel Nova license in `auth.json`. CI runs lint only and skips Nova-dependent tests.
 
 ## Authors
 
